@@ -22,7 +22,7 @@ class KaloriHesaplayici : AppCompatActivity() {
     var productList : ArrayList<Product> = ArrayList()
     var productsName : ArrayList<String> = ArrayList()
     var productsCalorie :ArrayList<Number> = ArrayList()
-    var products1 :ArrayList<String> = ArrayList()
+    var queryTextproducts :ArrayList<String> = ArrayList()
     var calorie1 :ArrayList<Number> = ArrayList()
     var adapter : KaloriUrunAdapter? = null
 
@@ -41,7 +41,7 @@ class KaloriHesaplayici : AppCompatActivity() {
             this
         )
         searchResultRecyclerView.adapter =adapter
-
+        //temizle butonunu çalıştırır ve refreshproducts fonksiyonunu çağırır seçilen ürünleri temizlemek için.
         val refreshBtn = findViewById<Button>(R.id.calRefresh)
         refreshBtn.setOnClickListener{
             refreshProducts()
@@ -49,36 +49,35 @@ class KaloriHesaplayici : AppCompatActivity() {
             finish()
             startActivity(intent)
         }
+        //Ana sayfaya döndürür.
         val anasayfabtn = findViewById<Button>(R.id.goHome)
         anasayfabtn.setOnClickListener{
             finish()
             goToHome()
         }
-       // val itemViewText = intent.getStringExtra("textToSend")
         var itemsLayout : LinearLayout = findViewById(R.id.kalori_item_layout)
         createDisplayItems(itemsLayout)
-      //  createDisplayItems(itemViewText?:"",itemsLayout)
-        println(toplamKalori)
-        textView23.text=resources.getString(R.string.toplamkalori)+" = "+ toplamKalori
-        searchView2.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        toplamKaloriTextView.text=resources.getString(R.string.toplamkalori)+" = "+ toplamKalori
+        kaloriSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
+            //dinamik arama yapar searchbarda
             override fun onQueryTextChange(newText: String?): Boolean {
                 if(newText!!.isNotEmpty()){
                     productsName.clear()
                     productsCalorie.clear()
                     val search = newText.toLowerCase(Locale.getDefault())
-                    products1.forEach {
+                    queryTextproducts.forEach {
                         if(it.toLowerCase(Locale.getDefault()).contains(search)){
-                            productsCalorie.add(calorie1.get(products1.indexOf(it)))
+                            productsCalorie.add(calorie1.get(queryTextproducts.indexOf(it)))
                             productsName.add(it)
                         }
                         searchResultRecyclerView.adapter!!.notifyDataSetChanged()
                     }
                 }else{
                     productsName.clear()
-                    productsName.addAll(products1)
+                    productsName.addAll(queryTextproducts)
                     productsCalorie.clear()
                     productsCalorie.addAll(calorie1)
                     searchResultRecyclerView.adapter!!.notifyDataSetChanged()
@@ -103,7 +102,7 @@ class KaloriHesaplayici : AppCompatActivity() {
         itemRowText.text = inputText
         itemsLayout.addView(itemRowView)
     }
-
+    //Temizle butonuna tıklayınca seçilen ürünleri siler.
     fun refreshProducts() {
         selectedItemsList.clear()
         toplamKalori =0.0
@@ -114,11 +113,11 @@ class KaloriHesaplayici : AppCompatActivity() {
         val intent = Intent(applicationContext,MainActivity::class.java)
         startActivity(intent)
     }
-
+    //ürünleri databaseden çeker ekrana gösterir. Ürün ismi ve calorisini saklar.
     fun verileriFirestoredanCekme(){
         var database = Database()
         productsName.clear()
-        products1.clear()
+        queryTextproducts.clear()
         database.getProducts(object :MyCallBack{
             override fun onCallback(value: ArrayList<Any>) {
                 productList=value as ArrayList<Product>
@@ -127,7 +126,7 @@ class KaloriHesaplayici : AppCompatActivity() {
                     var calorie = product.calorie as Number
                     productsName.add(name)
                     productsName.sort()
-                    products1.add(name)
+                    queryTextproducts.add(name)
                     productsCalorie.add(calorie)
                     calorie1.add(calorie)
                     adapter!!.notifyDataSetChanged()

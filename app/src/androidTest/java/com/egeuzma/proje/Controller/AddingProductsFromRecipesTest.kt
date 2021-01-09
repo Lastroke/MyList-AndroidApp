@@ -43,8 +43,8 @@ class AddingProductsFromRecipesTest {
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
         onView(withId(R.id.button3)).perform(click())
 
-        onView(withId(R.id.recyclerView2)).check(matches(isDisplayed()))
-        onView(withId(R.id.recyclerView2)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.tariflerRecyclerView)).check(matches(isDisplayed()))
+        onView(withId(R.id.tariflerRecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(RecipeName))
             ,click()))
@@ -57,7 +57,7 @@ class AddingProductsFromRecipesTest {
     @Test
     fun isProductsAdded(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(RecipeName+" Listesi"))
             ,click()))

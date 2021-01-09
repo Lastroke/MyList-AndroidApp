@@ -7,7 +7,7 @@
                                                    android:layout_height="match_parent" android:background="#BF000000">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/ürünNotuTextView"
         android:layout_width="308dp"
         android:layout_height="88dp"
         android:layout_marginStart="24dp"
@@ -29,11 +29,11 @@
         android:text="@string/not"
         android:textColor="#C8C6C6"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"/>
+        app:layout_constraintStart_toStartOf="@+id/ürünNotuTextView"
+        app:layout_constraintTop_toBottomOf="@+id/ürünAdediTextView"/>
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/ürünAdediTextView"
         android:layout_width="285dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
@@ -55,11 +55,11 @@
         android:text="@string/ürünadı"
         android:textColor="#C8C6C6"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/ürünAditextView"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/ürünAditextView"
         android:layout_width="285dp"
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
@@ -80,11 +80,11 @@
         android:text="@string/adet_gram"
         android:textColor="#C8C6C6"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+        app:layout_constraintStart_toStartOf="@+id/ürünAdediTextView"
+        app:layout_constraintTop_toBottomOf="@+id/ürünAditextView"/>
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/adetKaydetbutton"
         android:layout_width="204dp"
         android:layout_height="53dp"
         android:layout_marginBottom="32dp"
@@ -96,7 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/ürünKaydetbutton"
         android:layout_width="204dp"
         android:layout_height="53dp"
         android:layout_marginBottom="32dp"

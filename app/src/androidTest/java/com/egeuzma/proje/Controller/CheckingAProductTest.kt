@@ -31,11 +31,11 @@ class CheckingAProductTest {
     @Test
     fun isCheckWorkingWhenClicked(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
-        onView(withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.listeIcerikrecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(TıklancakÜrün))
             ,click()))

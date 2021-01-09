@@ -19,7 +19,7 @@ class MalzemeAdapter (private val productName : ArrayList<String>,private val pr
         var recyclerText : TextView? = null
 
         init {
-            recyclerText = view.findViewById(R.id.textView)
+            recyclerText = view.findViewById(R.id.recyclerViewText)
         }
     }
 
@@ -32,7 +32,12 @@ class MalzemeAdapter (private val productName : ArrayList<String>,private val pr
     override fun getItemCount(): Int {
         return productName.size
     }
+    /*
+    Burada ürüne bir sefer tıklanırsa ürünün üstüne çizgi çeker ve yazıyı blurlaştırır.
+    Bu da bu ürünün alındığı anlamına gelir. Ve databasede o ürün alındığı bilgisini günceller.
+    Bir ürüne uzun süre basılı tutarsa o ürünün detay sayfasına gider.
 
+    */
     override fun onBindViewHolder(holder: MalzemeHolder, position: Int) {
         var database=Database()
         holder.recyclerText?.text=productName[position]

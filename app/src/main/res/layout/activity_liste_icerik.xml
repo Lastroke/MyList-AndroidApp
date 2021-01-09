@@ -10,7 +10,7 @@
     tools:context=".Controller.MainActivity">
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/alinanUrunSayisitextView"
         android:layout_width="179dp"
         android:layout_height="31dp"
         android:layout_marginBottom="8dp"
@@ -64,18 +64,18 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/listeIcerikrecyclerView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/listeIcerikrecyclerView"
         android:layout_width="409dp"
         android:layout_height="380dp"
         android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintBottom_toTopOf="@+id/alinanUrunSayisitextView"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/listeNametextView"
         android:layout_width="387dp"
         android:layout_height="73dp"
         android:gravity="center"
@@ -83,7 +83,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/listeIcerikrecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

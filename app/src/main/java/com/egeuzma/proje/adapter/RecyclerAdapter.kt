@@ -18,7 +18,7 @@ class RecyclerAdapter(private val listname :ArrayList<Liste>): RecyclerView.Adap
         var recyclerText : TextView? = null
 
         init {
-            recyclerText = view.findViewById(R.id.textView)
+            recyclerText = view.findViewById(R.id.recyclerViewText)
         }
 
     }
@@ -32,7 +32,8 @@ class RecyclerAdapter(private val listname :ArrayList<Liste>): RecyclerView.Adap
     override fun getItemCount(): Int {
         return listname.size
     }
-
+    //Databasedeki listeleri recyclerviewa atar ve böylelikle listeler ekranda gözükür.
+    //Bir listeye tıklanınca o listenin içerik sayfasına götürür.
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
         holder.recyclerText?.text =listname[position].isim
         holder.itemView.setOnClickListener {

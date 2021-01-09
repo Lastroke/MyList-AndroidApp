@@ -32,7 +32,7 @@ class DeletingProductFromAListTest {
     @Test
     fun isListExist(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
@@ -42,11 +42,11 @@ class DeletingProductFromAListTest {
     @Test
     fun isNavProductInfoWorking(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
-        onView(withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.listeIcerikrecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(silincekUrun))
             ,longClick()))
@@ -58,16 +58,16 @@ class DeletingProductFromAListTest {
     @Test
     fun isDeletingWorking(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
-        onView(withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.listeIcerikrecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(silincekUrun))
             ,longClick()))
 
-        onView(withId(R.id.button22)).perform(click())
+        onView(withId(R.id.adetKaydetbutton)).perform(click())
     }
 
 }

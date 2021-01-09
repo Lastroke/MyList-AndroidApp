@@ -34,7 +34,7 @@ class AddingProductToAListTest {
     @Test
     fun isListExist(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
@@ -44,7 +44,7 @@ class AddingProductToAListTest {
     @Test
     fun navAddProductWorking(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
@@ -57,7 +57,7 @@ class AddingProductToAListTest {
     @Test
     fun addingAProductWorking(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
@@ -69,21 +69,21 @@ class AddingProductToAListTest {
             hasDescendant(withText(EklencekUrun))
             ,click()))
 
-        onView(withId(R.id.editTextNumber30)).perform(typeText(Gram))
-        onView(withId(R.id.editTextTextMultiLine30)).perform(typeText(Note))
+        onView(withId(R.id.ürünEklemeAdetGirmeText)).perform(typeText(Gram))
+        onView(withId(R.id.ürünEklemeNotGirmeText)).perform(typeText(Note))
 
-        onView(withId(R.id.button30)).perform(click())
+        onView(withId(R.id.ürünEklemeKaydetbutton)).perform(click())
     }
 
     // Eklenen Ürün listede mevcut mu?
     @Test
     fun addedProductExists(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(ListeAdı))
             ,click()))
-        onView(withId(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.listeIcerikrecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(EklencekUrun))
             ,click()))

@@ -10,12 +10,6 @@ class Product(name : String , unitType : String,category :String,unitCalorie:Num
     var calorie :Number ? = unitCalorie
         private set
         get
-    /*var name_en :String ? = name_en
-        private set
-        get
-    var kategori_en :String ? = category_en
-        private set
-        get*/
     var kategori :String ? = category
         private set
         get

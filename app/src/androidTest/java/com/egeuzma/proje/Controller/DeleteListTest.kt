@@ -29,8 +29,8 @@ class DeleteListTest {
     @Test
     fun isClickingAListWorking(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).check(matches(isDisplayed()))
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).check(matches(isDisplayed()))
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(silincekListeAdı))
             ,click()))
@@ -41,8 +41,8 @@ class DeleteListTest {
     fun isDeletingAListWorking(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
 
-        onView(withId(R.id.recyclerView3)).check(matches(isDisplayed()))
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).check(matches(isDisplayed()))
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(silincekListeAdı))
             ,click()))

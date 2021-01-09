@@ -16,7 +16,7 @@ class TarifAdapter (private val tarifname :ArrayList<YemekTarif>): RecyclerView.
       var recyclerText : TextView? = null
 
       init {
-          recyclerText = view.findViewById(R.id.textView)
+          recyclerText = view.findViewById(R.id.recyclerViewText)
       }
   }
 
@@ -30,7 +30,7 @@ class TarifAdapter (private val tarifname :ArrayList<YemekTarif>): RecyclerView.
     override fun getItemCount(): Int {
         return tarifname.size
     }
-
+    //Databasedeki listeleri Recyclerviewe atar böylelikle ekranda gözükür.
     override fun onBindViewHolder(holder: TarifHolder, position: Int) {
         holder.recyclerText?.text=tarifname[position].isim
         holder.itemView.setOnClickListener {

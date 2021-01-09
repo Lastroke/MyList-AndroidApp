@@ -25,7 +25,7 @@ class KaloriUrunAdapter (private val productName : ArrayList<String>,private val
     class KaloriUrunHolder(view: View):RecyclerView.ViewHolder(view){
         var recyclerText : TextView? = null
         init {
-            recyclerText = view.findViewById(R.id.textView)
+            recyclerText = view.findViewById(R.id.recyclerViewText)
         }
     }
 
@@ -39,22 +39,17 @@ class KaloriUrunAdapter (private val productName : ArrayList<String>,private val
     override fun getItemCount(): Int {
         return productName.size
     }
-
+    //Bir ürüne tıkladığında pencere açılır ve ürünün gramajı girilir.
+    //Sonra ürünün kalorisini hesaplar ve sonra ekranda gösterir.
     override fun onBindViewHolder(holder: KaloriUrunHolder, position: Int) {
         holder.recyclerText?.text=productName[position]
         holder.itemView.setOnClickListener {
-             println("tıklandı: ${productName[position]}")
-            // println(listname[position])
-
             val inflater = LayoutInflater.from(context)
             val view = inflater.inflate(R.layout.kalori_popup,viewgroup,false)
-
             val builder = AlertDialog.Builder(context)
             builder.apply{
                 val string: String = context.getString(R.string.eklenecekMik)
                 setMessage("${productName[position]}\n\n$string")
-
-                //alertDialog.setCancelable(false)
             }
             builder.setView(view)
                 .setPositiveButton(R.string.ekle,
@@ -76,32 +71,18 @@ class KaloriUrunAdapter (private val productName : ArrayList<String>,private val
                             toplamKalori += urunCal
                             val string: String = context.getString(R.string.kaloriYazisi)
                             val textToSend = "${productName[position]} , $miktar, ${string}: $urunCal"
-
                             val intent = Intent(context, KaloriHesaplayici::class.java)
-                            //intent.putExtra("textToSend",textToSend)
+
                             selectedItemsList.add(textToSend)
                             (context as Activity).finish()
                             context.startActivity(intent)
                         }
-
                     }
-
-
                 })
                 .setNegativeButton(R.string.iptal,
                 DialogInterface.OnClickListener { dialog, id ->
-
                 })
-
-
-
             builder.create().show()
-
-
-
         }
-
     }
-
-
 }

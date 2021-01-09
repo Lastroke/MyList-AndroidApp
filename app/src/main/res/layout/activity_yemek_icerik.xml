@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="104dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/tarifImageView"
             android:layout_width="match_parent"
             android:layout_height="218dp" />
 
@@ -24,12 +24,11 @@
             android:layout_height="328dp">
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/tarifText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:paddingStart="5dp"
-                android:text="Tencereye şeker, nişasta, un, toz vanilya ve yumurtayı koyuyoruz. Yavaşça sütü ekliyoruz ve çırpma teli ile iyice çırpıyoruz. Ocağa koyup kısık ateşte topaklanmamasına dikkat ederek karıştırıyoruz. Kaynamaya başlayıp muhallebi kıvamına geldiğinde ocağın altını kapatıyoruz ve soğumaya bırakıyoruz. Muhallebi soğurken bisküvileri rondodan geçiriyoruz büyük parçaların kalmamasına özen gösteriyoruz. Muhallebi soğuduktan sonra içine bir paket kremamızı da ilave çırpma teli ile çırpıyoruz.Küçük kuplara eşit şekilde dağıtıyoruz. İlk olarak bisküvi sonra çilek ya da muz sonra muhallebi, sonra tekrar bisküvi çilek/muz ve tekrar muhallebi ve en son üste bisküvi serpip istediğimiz gibi süslüyoruz. Hem kendiniz hem de sevdikleriniz için hafif ve lezzetli bir tatlı arıyorsanız magnolianın tarifi işte bu kadar basit!"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
         </ScrollView>

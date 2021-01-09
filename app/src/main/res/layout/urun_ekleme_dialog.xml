@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="@+id/yeniListe" />
 
     <EditText
-        android:id="@+id/editTextNumber30"
+        android:id="@+id/ürünEklemeAdetGirmeText"
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="@+id/yeniListe" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine30"
+        android:id="@+id/ürünEklemeNotGirmeText"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -51,7 +51,7 @@
         android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/button30"
+        android:id="@+id/ürünEklemeKaydetbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/kaydet_but"

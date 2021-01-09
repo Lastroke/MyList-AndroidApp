@@ -22,14 +22,14 @@
         app:layout_constraintStart_toStartOf="@+id/yeniListe" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/adetGirmeText"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/adetKaydetbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/kaydet_but"

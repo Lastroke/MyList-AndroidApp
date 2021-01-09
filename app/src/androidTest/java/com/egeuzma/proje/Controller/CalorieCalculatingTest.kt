@@ -57,6 +57,6 @@ class CalorieCalculatingTest {
             .perform(click())
 
         //total kalori yukardaki miktar bilgisiyle aynı mı?
-        onView(withId(R.id.textView23)).check(matches(withText(containsString(totalkalori))))
+        onView(withId(R.id.toplamKaloriTextView)).check(matches(withText(containsString(totalkalori))))
     }
 }

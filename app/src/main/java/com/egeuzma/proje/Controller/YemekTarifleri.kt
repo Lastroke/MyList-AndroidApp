@@ -25,9 +25,9 @@ class YemekTarifleri : AppCompatActivity() {
                 tarifler.clear()
                 tarifler = value as ArrayList<YemekTarif>
                 var layoutManager = LinearLayoutManager(this@YemekTarifleri)
-                recyclerView2.layoutManager = layoutManager
+                tariflerRecyclerView.layoutManager = layoutManager
                 adapter = TarifAdapter(tarifler)
-                recyclerView2.adapter = adapter
+                tariflerRecyclerView.adapter = adapter
             }
 
             override fun onCallback(

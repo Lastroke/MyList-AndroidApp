@@ -18,7 +18,7 @@ class UrunAdapter (private val product :ArrayList<String>,private val isim:Strin
         var recyclerText: TextView? = null
 
         init {
-            recyclerText = view.findViewById(R.id.textView)
+            recyclerText = view.findViewById(R.id.recyclerViewText)
         }
     }
 
@@ -31,7 +31,8 @@ class UrunAdapter (private val product :ArrayList<String>,private val isim:Strin
     override fun getItemCount(): Int {
         return product.count()
     }
-
+    //ürün ekleme sayfasında bir ürüne tıkladıktan sonra bir pencere oluşturur ve orada ürünün adedini
+    //ve notunu girmesini ister ama zorunlu değildir.Kaydet butonuna bastıktan sonra ürünü listeye ekler.
     override fun onBindViewHolder(holder: UrunHolder, position: Int) {
         holder.recyclerText?.text = product[position]
         var database=Database()
@@ -39,11 +40,11 @@ class UrunAdapter (private val product :ArrayList<String>,private val isim:Strin
             var dialog = Dialog(holder.recyclerText?.context!!)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.urun_ekleme_dialog)
-            dialog.button30.setOnClickListener {
+            dialog.ürünEklemeKaydetbutton.setOnClickListener {
                 val map = HashMap<String,Any>()
                 map.put("UrunAdi",product[position])
-                map.put("UrunAdeti",dialog.editTextNumber30.text.toString())
-                map.put("UrunNotu",dialog.editTextTextMultiLine30.text.toString())
+                map.put("UrunAdeti",dialog.ürünEklemeAdetGirmeText.text.toString())
+                map.put("UrunNotu",dialog.ürünEklemeNotGirmeText.text.toString())
                 map.put("isCheck",false)
                 database.addProductToList(holder.recyclerText?.context!!,map,isim)
                 dialog.cancel()

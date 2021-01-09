@@ -19,7 +19,6 @@ class ListeIcerik : AppCompatActivity() {
     private lateinit var  db : FirebaseFirestore
     var productName : ArrayList<String> = ArrayList()
     var productCheck : ArrayList<Boolean> = ArrayList()
-    var deneme: ArrayList<HashMap<String,Any>> = ArrayList()
     var adapter : MalzemeAdapter?=null
     var selectedList:String? = null
     var productNumber : ArrayList<String> = ArrayList()
@@ -31,14 +30,13 @@ class ListeIcerik : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         val intent = intent
         val info= intent.getStringExtra("info")
-        if(info == "new" || info == "old"){
-            selectedList=intent.getStringExtra("isim")
-            textView2.text=selectedList
+        if(info == "new" || info == "old") {
+            selectedList = intent.getStringExtra("isim")
+            listeNametextView.text = selectedList
             getSelectedListsProduct(selectedList!!)
         }
-
-        recyclerView.setOnTouchListener(object : View.OnTouchListener {
-
+        //ekranda klavye gibi şeyler açıksa recyclerviewa tıklanırsa klavye gibi şeyleri kapatır.
+        listeIcerikrecyclerView.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 var imm =  getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(v!!.getWindowToken(), 0);
@@ -47,6 +45,7 @@ class ListeIcerik : AppCompatActivity() {
             }
         })
     }
+    // Seçilen listenin içindeki ürünler databaseden çeker ve ekrana basar.
     fun getSelectedListsProduct(selectedList :String){
         var database=Database()
         database.getSelectedListProducts(object :MyCallBack{
@@ -65,7 +64,7 @@ class ListeIcerik : AppCompatActivity() {
                 checkedProduct(productCheck)
 
                 layoutManager = LinearLayoutManager(this@ListeIcerik)
-                recyclerView.layoutManager = layoutManager
+                listeIcerikrecyclerView.layoutManager = layoutManager
                 adapter = MalzemeAdapter(
                     productName,
                     productNumber,
@@ -73,11 +72,12 @@ class ListeIcerik : AppCompatActivity() {
                     selectedList!!,
                     productCheck
                 )
-                recyclerView.adapter = adapter
+                listeIcerikrecyclerView.adapter = adapter
             }
 
         },selectedList)
     }
+    //Kaç tane ürünün alınıp alınmadığını ölçer ve alınan ürün sayısını günceller.
     fun checkedProduct(list: ArrayList<Boolean>){
         var count=0
         for (product in list){
@@ -85,14 +85,16 @@ class ListeIcerik : AppCompatActivity() {
                 count++
             }
         }
-        textView18.text=count.toString()+"/"+list.size.toString()
+        alinanUrunSayisitextView.text=count.toString()+"/"+list.size.toString()
     }
+    //Ürün ekleme sayfasına gider.
     fun addProduct(view: View){
         val intent = Intent(applicationContext, UrunEkleme::class.java)
         intent.putExtra("isim",selectedList)
         startActivity(intent)
         finish()
     }
+    //Listeyi siler.
     fun deleteList(view: View){
         var list =db.collection("Listeler").document(selectedList!!)
         list.delete()

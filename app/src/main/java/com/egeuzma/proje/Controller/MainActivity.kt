@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         getData()
     }
+    //Databasedeki oluşturulmuş listeleri alır ve ana sayfada bastırır.
     fun getData(){
         var database = Database()
         database.getListData(object :MyCallBack {
@@ -42,9 +43,9 @@ class MainActivity : AppCompatActivity() {
                     listName.add(liste.isim!!)
                 }
                 var layoutManager = LinearLayoutManager(this@MainActivity)
-                recyclerView3.layoutManager = layoutManager
+                ListerecyclerView.layoutManager = layoutManager
                 adapter = RecyclerAdapter(lists)
-                recyclerView3.adapter = adapter
+                ListerecyclerView.adapter = adapter
             }
 
             override fun onCallback(
@@ -67,12 +68,13 @@ class MainActivity : AppCompatActivity() {
             KaloriHesaplayici::class.java)
         startActivity(intent)
     }
+    //butona tıkladıktan sonra pencere açılır kullanıcı liste ismi girer.
+    //Öyle bir liste varsa uyarı mesaj verir. Öyle bir liste yoksa database ekler.
    fun createNewList(view: View){
-
        val alert = AlertDialog.Builder(this)
        val view = layoutInflater.inflate(R.layout.change_liste_ismi,null)
-       val textview = view.findViewById<TextView>(R.id.textView5)
-       val but = view.findViewById<Button>(R.id.button7)
+       val textview = view.findViewById<TextView>(R.id.yeniListetextView)
+       val but = view.findViewById<Button>(R.id.kaydetbutton)
        val edittext = view.findViewById<EditText>(R.id.yeniListe)
        alert.setView(view)
        val dialog = alert.create()

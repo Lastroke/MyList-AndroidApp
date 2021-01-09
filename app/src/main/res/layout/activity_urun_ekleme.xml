@@ -7,7 +7,7 @@
                                                    android:layout_height="match_parent" android:background="#BF000000">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/kategoriTextView"
         android:layout_width="410dp"
         android:layout_height="71dp"
         android:gravity="center"

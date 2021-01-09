@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <SearchView
-        android:id="@+id/searchView2"
+        android:id="@+id/kaloriSearchView"
         android:layout_width="317dp"
         android:layout_height="49dp"
         android:layout_marginTop="24dp"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView2"/>
+        app:layout_constraintTop_toBottomOf="@+id/kaloriSearchView"/>
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/scrollView2">
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/toplamKaloriTextView"
             android:layout_width="294dp"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"

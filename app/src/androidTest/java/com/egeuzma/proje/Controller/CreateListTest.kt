@@ -9,7 +9,6 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.egeuzma.proje.R
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -47,14 +46,14 @@ class CreateListTest {
 
         onView(withId(R.id.button5)).perform(click())
         onView(withId(R.id.yeniListe)).perform(typeText(newListName))
-        onView(withId(R.id.button7)).perform(click())
+        onView(withId(R.id.kaydetbutton)).perform(click())
     }
     //"yeni liste" adında liste eklendi mi?
     @Test
     fun CreatedListExists(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)
-        onView(withId(R.id.recyclerView3)).check(matches(isDisplayed()))
-        onView(withId(R.id.recyclerView3)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
+        onView(withId(R.id.ListerecyclerView)).check(matches(isDisplayed()))
+        onView(withId(R.id.ListerecyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
             (
             hasDescendant(withText(newListName))
             ,click()))
