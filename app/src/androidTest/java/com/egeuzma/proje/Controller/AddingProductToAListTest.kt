@@ -23,7 +23,7 @@ class AddingProductToAListTest {
         onView(withId(R.id.MainActivityLayout)).check(matches(isDisplayed()))
     }
 
-    var ListeAdı = "Baklava Listesi"  // Test için kullanılacak liste adı
+    var ListeAdı = "yeni liste"  // Test için kullanılacak liste adı
 
     // Test amaçlı eklenicek ürün bilgileri
     var EklencekUrun = "Ayran"

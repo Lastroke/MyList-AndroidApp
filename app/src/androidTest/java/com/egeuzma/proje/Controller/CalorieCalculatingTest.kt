@@ -51,7 +51,7 @@ class CalorieCalculatingTest {
         onView(withId(R.id.kaloriPopupLayout)).check(matches(isDisplayed()))
 
         onView(withId(R.id.text_miktar)).perform(typeText(miktar))
-        onView(withText("Add"))
+        onView(withText("Ekle"))
             .inRoot(isDialog())
             .check(matches(isDisplayed()))
             .perform(click())

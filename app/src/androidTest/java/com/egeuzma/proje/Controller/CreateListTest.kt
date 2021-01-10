@@ -24,6 +24,7 @@ class CreateListTest {
     }
 
     // Ana Sayfadaki yeni liste ekleme butonu gözüküyor mu?
+    //Ist die Schaltfläche Neue Liste hinzufügen auf der Startseite sichtbar?
     @Test
     fun isCreateListButtonInView(){
         val activityScenario = ActivityScenario.launch(MainActivity::class.java)

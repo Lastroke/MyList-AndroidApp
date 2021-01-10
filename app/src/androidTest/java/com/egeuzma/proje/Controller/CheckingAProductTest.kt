@@ -39,14 +39,6 @@ class CheckingAProductTest {
             (
             hasDescendant(withText(TıklancakÜrün))
             ,click()))
-
-        /*
-        TODO: Ürün işaretlenmiş mi kontrolü yapılcak
-        onView(with(R.id.recyclerView)).perform(RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>
-            (
-            hasDescendant(withText(TıklancakÜrün)),
-
-        ))*/
     }
 
 
