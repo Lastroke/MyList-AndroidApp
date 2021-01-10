@@ -40,6 +40,4 @@ class CheckingAProductTest {
             hasDescendant(withText(TıklancakÜrün))
             ,click()))
     }
-
-
 }
